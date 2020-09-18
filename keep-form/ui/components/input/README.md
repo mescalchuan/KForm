@@ -1,0 +1,48 @@
+### Input 组件
+
+#### 属性
+
+支持 iview Input 组件的所有属性
+
+#### 事件
+
+支持 iview Input 组件的所有事件
+
+#### 插槽
+
+支持 iview Input 组件的所以插槽
+
+#### 方法
+
+暂不支持
+
+#### 示例
+
+```
+[{
+  type: KeepForm.TYPE.INPUT,
+  field: 'name',
+  label: '用户名',
+  ui: {
+    type: 'number',
+    icon: 'ios-contact',
+    $slots: [{
+      name: 'prefix',
+      render: h => <Icon type = {'md-home'} slot = {'prefix'} />
+    }],
+    $on: {
+      'on-focus': () => console.log('im focus'),
+    }
+  }
+}]
+
+<KeepField 
+  v-model="form.name" 
+  :type="KeepForm.TYPE.INPUT" 
+  field="name" 
+  label="用户名" 
+  :ui="{ type: 'password', $on: { 'on-change': (e) => handler(e) } }"
+>
+  <Icon slot="prefix" type="md-home" />
+</KeepField>
+```
