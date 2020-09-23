@@ -10,11 +10,11 @@
 
 #### 插槽
 
-支持 iview Input 组件的所以插槽
+支持 iview Input 组件的所有插槽
 
 #### 方法
 
-暂不支持
+支持 ref 的形式调用方法，支持 iview Input 组件的所有方法
 
 #### 示例
 
@@ -37,7 +37,7 @@
 }]
 
 <KeepField 
-  v-model="form.name" 
+  :value="form.name" 
   :type="KeepForm.TYPE.INPUT" 
   field="name" 
   label="用户名" 
