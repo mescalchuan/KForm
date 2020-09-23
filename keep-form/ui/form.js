@@ -41,6 +41,7 @@ export default {
     renderField(field, index) {
       return (
         <Field
+          ref = { field.field }
           type = { field.type }
           field = { field.field }
           label = { field.label }
@@ -51,6 +52,12 @@ export default {
         />
       )
     },
+    $field(field) {
+      return this.$refs[this.schema.fields.filter(item => item.field === field)[0].field].$field()
+    },
+    $form() {
+      return this.$refs[refName]
+    }
     // handleFieldValueChange(field, e) {
     //   this.$emit('input', {...this.value, ...{ [field]: e }})
     // }

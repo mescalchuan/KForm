@@ -6,7 +6,7 @@ export default {
   inheritAttrs: false,
   render(h) {
     return (
-      <CheckboxGroup {...{ props: this.$attrs, on: this.$listeners}}  on-input = { e => this.$emit('input', e) }>
+      <CheckboxGroup {...{ props: this.$attrs, on: this.$listeners}} >
         { this.$attrs.$data.map(item => <Checkbox label = { item.id } disabled = { item.disabled }>{ item.render ? isFunction(item.render) ? item.render() : item.render : item.name }</Checkbox>) }
       </CheckboxGroup>
     )

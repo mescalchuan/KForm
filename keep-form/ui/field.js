@@ -11,7 +11,7 @@ export default {
     },
     field: {
       type: String,
-      default: ''
+      default: '',
     },
     value: {
       type: [String, Number, Array],
@@ -37,6 +37,9 @@ export default {
   methods: {
     getFieldComponent(type) {
       return components[type]
+    },
+    $field() {
+      return this.$refs.fieldRef.$refs[this.field]
     }
   },
   render(h) {
@@ -47,12 +50,15 @@ export default {
             attrs: {
               value: this.$props.value,
               slots: this.$props.ui.$slots || slotsWrap(this, this.$slots),
-              ...this.$props.ui
+              ...this.$props.ui,
+              field: this.field,
+              // $field: () => this.$field()
             },
             on: {
               input: e => this.formHanlder(this.field, e),
               ...this.$props.ui.$on
             },
+            ref: 'fieldRef'
           }) }
           <slot/>
         </form-item>

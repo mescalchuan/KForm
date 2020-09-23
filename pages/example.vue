@@ -3,9 +3,11 @@
     <div style="overflow: hidden;">
       <keep-form ref="form" :model="form" :schema="schema">
         <keep-field
+          ref="name1"
           type="k-input"
           field="name1"
           label="姓名1"
+          :value="form.name1"
           :rules="{ required: true }"
         >
           <Icon slot="prefix" type="md-home"/>
@@ -13,11 +15,6 @@
       </keep-form>
       {{ form }}
     </div>
-    <child1>
-      <template v-slot:prefix>
-        <p>我是插槽</p>
-      </template>
-    </child1>
   </div>
 </template>
 
@@ -42,12 +39,12 @@ export default {
           field: 'name',
           label: '姓名',
           ui: {
-            type: 'number',
+            // type: 'number',
             // prefix: 'md-home',
             $slots: [{
               name: 'prefix',
               render: h => <Icon type="md-home" slot="prefix"/>
-            }],
+            }]
           },
           rules: {
             required: true
@@ -67,6 +64,15 @@ export default {
     // setTimeout(() => {
     //   this.$refs.form.$refs['KeepForm'].validate(valid => console.log(valid))
     // }, 2000)
+    // setTimeout(() => {
+    //   console.log(this.$refs.fieldRef.$field().focus())
+    //   this.$refs.test.$field().focus()
+    // }, 2000) 
+    setTimeout(() => {
+      // console.log(this.$refs.form.$field('name').focus())
+      // this.$refs.name1.$field().focus()
+      this.$set(this.form, 'name1', 'qinchuan')
+    }, 2000)
   },
   methods: {
     handler(e) {
