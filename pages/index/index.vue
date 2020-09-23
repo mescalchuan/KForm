@@ -85,6 +85,13 @@ export default {
             // render支持值和函数，务必使用 function 而不是箭头函数，否则获取不到this
             $data: [{id: 0, name: '苹果', render: function() { return <span><Icon type="md-home"/><span>{ this.name }</span></span>}}, {id: 1, name: '香蕉'}, {id: 2, name: '葡萄'}],
           }
+        }, {
+          type: KeepForm.TYPE.SELECT,
+          field: 'city',
+          label: '城市',
+          ui: {
+            $data: [{ id: 0, name: 'beijing' }, { id: 1, name: 'tianjin'}, { id: 2, name: 'shanghai' }]
+          }
         }]
       },
       form: {
@@ -93,6 +100,7 @@ export default {
         name1: '222',
         sex: '',
         favorite: [],
+        city: ''
       }
     }
   },

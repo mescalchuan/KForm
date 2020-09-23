@@ -48,3 +48,7 @@ export const getTypeString = v => Object.prototype.toString.call(v)
 export const isObject = v => getTypeString(v) === '[object Object]'
 
 export const isFunction = v => getTypeString(v) === '[object Function]'
+
+export const isArray = v => getTypeString(v) === '[object Array]'
+
+export const isMultipleArr = v => isArray(v) ? v.every(e => isArray(e)) : false

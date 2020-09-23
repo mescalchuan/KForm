@@ -1,7 +1,7 @@
 import BaseForm from '../core/form'
 import Field from './field'
 import { mapSchemaRules2UI } from '../core/utils'
-import { refName } from '../core/config'
+import { refName, _schema } from '../core/config'
 // import render from './render'
 
 let kf = new BaseForm(this)
@@ -17,7 +17,7 @@ export default {
     },
     schema: {
       type: Object,
-      default: () => ({})
+      default: () => _schema
     },
     refName: {
       type: String,
